@@ -1,5 +1,5 @@
 {
-    "name": "smart/linkedin-php",
+    "name": "smartstrategy/linkedin-php",
     "description": "PHP library for LinkedIn",
     "type": "library",
     "require": {
