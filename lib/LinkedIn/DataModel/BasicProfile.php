@@ -12,12 +12,17 @@ class BasicProfile extends Model
     /**
      * @var string
      */
-    private $localizedLastName;
+    private $localizedFirstName;
 
     /**
      * @var string
      */
-    private $localizedFirstName;
+    private $localizedLastName;
+
+    /**
+     * @var array
+     */
+    private $profilePicture;
 
     /**
      * @return string
@@ -34,6 +39,25 @@ class BasicProfile extends Model
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLocalizedFirstName()
+    {
+        return $this->localizedFirstName;
+    }
+
+    /**
+     * @param string $localizedFirstName
+     * @return BasicProfile
+     */
+    public function setLocalizedFirstName($localizedFirstName)
+    {
+        $this->localizedFirstName = $localizedFirstName;
 
         return $this;
     }
@@ -60,19 +84,36 @@ class BasicProfile extends Model
     /**
      * @return string
      */
-    public function getLocalizedFirstName()
+    public function getProfilePicture()
     {
-        return $this->localizedFirstName;
+        return $this->profilePicture;
     }
 
     /**
-     * @param string $localizedFirstName
-     * @return BasicProfile
+     * @param string $profilePicture
      */
-    public function setLocalizedFirstName($localizedFirstName)
+    public function setProfilePicture($profilePicture)
     {
-        $this->localizedFirstName = $localizedFirstName;
+        $this->profilePicture = $profilePicture;
+    }
 
-        return $this;
+    public function getProfilerCdnUrl100x100()
+    {
+        return $this->profilePicture['displayImage~']['elements'][0]['identifiers'][0]['identifier'];
+    }
+
+    public function getProfilerCdnUrl200x200()
+    {
+        return $this->profilePicture['displayImage~']['elements'][1]['identifiers'][0]['identifier'];
+    }
+
+    public function getProfilerCdnUrl400x400()
+    {
+        return $this->profilePicture['displayImage~']['elements'][2]['identifiers'][0]['identifier'];
+    }
+
+    public function getProfilerCdnUrl800x800()
+    {
+        return $this->profilePicture['displayImage~']['elements'][3]['identifiers'][0]['identifier'];
     }
 }

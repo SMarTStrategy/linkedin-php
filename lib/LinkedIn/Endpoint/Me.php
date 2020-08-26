@@ -7,7 +7,7 @@ use SMarT\LinkedIn\Transport\TransportInterface;
 
 class Me extends EndpointBase
 {
-    const ENDPOINT_PATH = '/me';
+    const ENDPOINT_PATH = '/me?projection=(id,firstName,lastName,profilePicture(displayImage~:playableStreams))';
 
     public function get()
     {
